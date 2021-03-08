@@ -10,6 +10,8 @@ function CartScreen({match,location,history}) {
     
     const dispatch=useDispatch()
     const cart=useSelector(state=>state.cart)  
+
+    console.log('cartItems:',cart)
     const {cartItems}=cart
     console.log('cartItems:',cartItems)
     useEffect(()=>{
