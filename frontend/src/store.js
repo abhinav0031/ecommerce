@@ -4,7 +4,7 @@ import {composeWithDevTools} from 'redux-devtools-extension'
 import {productListReducer,productDetailsReducer} from './reducers/productReducers'
 import {cartReducer} from './reducers/cartReducers'
 import {userLoginReducer,userRegisterReducer,userDetailsReducer,userUpdateProfileReducer} from './reducers/userReducers'
-
+import {orderCreateReducer} from './reducers/orderReducers'
 
 const reducer=combineReducers({
     userLogin:userLoginReducer,
@@ -14,6 +14,7 @@ const reducer=combineReducers({
     productList:productListReducer,
     productDetails:productDetailsReducer,
     cart:cartReducer,
+    orderCreate:orderCreateReducer
 
 })
 const cartItemsFromStorage=localStorage.getItem('cartItems')?
@@ -31,7 +32,7 @@ const intialState={
         cartItems:cartItemsFromStorage,
         shippingAddress:shippingAddressFromStorage
     },
-    userLogin:{userInfo:userInfoFromStorage},
+    userLogin:{userInfo:userInfoFromStorage}
     
 }
 const middleware=[thunk]
