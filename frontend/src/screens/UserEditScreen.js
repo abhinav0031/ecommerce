@@ -7,7 +7,7 @@ import FormContainer from '../components/FormContainer'
 import {useDispatch,useSelector} from 'react-redux'
 import {getUserDetails,updateUser} from '../actions/userActions'
 import {USER_UPDATE_RESET} from '../constants/userConstant'
-function EditUserScreen({match,location,history}) {
+function UserEditScreen({match,location,history}) {
 
     const userId=match.params.id
     const [name,setName]=useState('')
@@ -85,4 +85,4 @@ function EditUserScreen({match,location,history}) {
     )
 }
 
-export default EditUserScreen
+export default UserEditScreen
