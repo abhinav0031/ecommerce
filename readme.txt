@@ -17,6 +17,12 @@ Now open another terminal and keep the backend server running.
 
 
 
+to access admin page on website where you can edit/delete users or you can edit/delete orders.
+the creadentials for the user are:
+    email: admin@email.com
+    password: 123456
+
+login with this to access admin only page in site.
 
 
 
