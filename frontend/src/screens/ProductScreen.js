@@ -152,7 +152,7 @@ function ProductScreen({match,history}) {
                                 <h4>Write a review</h4>
                                 {loadingProductReview&&<Loader/>}
                                 {successProductReview && <Message variant='success'>Review Submitted</Message>}
-                                {successProductReview && <Message variant='danger'>{errorProductReview}</Message>}
+                                {errorProductReview && <Message variant='danger'>{errorProductReview}</Message>}
                                 {userInfo?(
                                     <Form onSubmit={submitHandler}>
                                         <Form.Group controlId='rating'>
