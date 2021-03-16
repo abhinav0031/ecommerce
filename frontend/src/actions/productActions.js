@@ -1,5 +1,5 @@
 import {
-    PROUDUCT_LIST_REQUEST,
+    PRODUCT_LIST_REQUEST,
     PRODUCT_LIST_SUCCESS,
     PRODUCT_LIST_FAIL,
     PROUDUCT_DETAILS_REQUEST,
@@ -17,13 +17,15 @@ import {
     PRODUCT_CREATE_REVIEW_REQUEST,
     PRODUCT_CREATE_REVIEW_SUCCESS,
     PRODUCT_CREATE_REVIEW_FAIL,
-    PRODUCT_CREATE_REVIEW_RESET
+    PRODUCT_TOP_REQUEST,
+    PRODUCT_TOP_SUCCESS,
+    PRODUCT_TOP_FAIL,
 
 } from '../constants/productConstant'
 import axios from 'axios'
 export const listProducts=(keyword='')=>async (dispatch)=>{
      try{
-         dispatch({type:PROUDUCT_LIST_REQUEST})
+         dispatch({type:PRODUCT_LIST_REQUEST})
          const {data}=await axios.get(`/api/products${keyword}`)
          console.log(data)
          dispatch({
@@ -198,5 +200,24 @@ export const createProductReview=(productId,review)=>async(dispatch,getState)=>{
             ? error.response.data.detail
             :error.message
         })
+    }
+}
+
+export const listTopProducts=()=>async (dispatch)=>{
+    try{
+        dispatch({type:PRODUCT_TOP_REQUEST})
+        const {data}=await axios.get(`/api/products/top/`)
+        console.log(data)
+        dispatch({
+            type:PRODUCT_TOP_SUCCESS,
+            payload:data
+        })
+    }  catch(error){
+       dispatch({
+           type:PRODUCT_TOP_FAIL,
+           payload:error.response && error.response.data.detail
+           ? error.response.data.detail
+           :error.message
+       })
     }
 }

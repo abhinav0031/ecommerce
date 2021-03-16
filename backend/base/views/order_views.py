@@ -106,6 +106,6 @@ def updateOrderToPaid(request, pk):
 def updateOrderToDelivered(request, pk):
     order = Order.objects.get(_id=pk)
     order.isDelivered = True
-    order.delivereddAt = datetime.now()
+    order.deliveredAt = datetime.now()
     order.save()
     return Response('Order was delivered')
